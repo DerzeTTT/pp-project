@@ -1,5 +1,26 @@
-body {
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-    background-color: black;
+/* Body Styling */
+body, html {
+
+    margin: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
 
 }
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(35,35,35);
+
+    color: white;
+
+}
+
+/* Content Styling */

@@ -1,0 +1,52 @@
+USE master
+GO
+
+CREATE DATABASE SmartLibraryDB
+GO
+
+USE SmartLibraryDB
+GO
+
+CREATE TABLE Users (
+
+	UserId INT PRIMARY KEY IDENTITY(1,1),
+
+	Username VARCHAR(20) NOT NULL,
+	HashedPassword VARCHAR(255) NOT NULL,
+
+	RentingId INT FOREIGN KEY REFERENCES Rental(RentalId)
+
+)
+
+CREATE TABLE Books (
+
+	BookId INT PRIMARY KEY IDENTITY(1,1),
+
+	BookName VARCHAR(255) NOT NULL,
+	Author VARCHAR(255) NOT NULL,
+	
+	Category INT NOT NULL FOREIGN KEY REFERENCES Categories(CategoryId)
+
+)
+
+CREATE TABLE Rental (
+
+	RentalId INT PRIMARY KEY IDENTITY(1,1),
+	
+	StartDate DATE NOT NULL DEFAULT GETDATE(),
+	EndDate DATE NOT NULL,
+
+	UserId INT NOT NULL FOREIGN KEY REFERENCES Users(UserId)
+
+)
+
+CREATE TABLE Categories (
+
+	CategoryId INT PRIMARY KEY,
+
+	CategoryName VARCHAR(255) NOT NULL,
+	BookId INT NOT NULL FOREIGN KEY REFERENCES Books(BookId) 
+
+)
+
+GO
